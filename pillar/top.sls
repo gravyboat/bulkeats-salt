@@ -1,0 +1,4 @@
+base:
+  '*':
+    - bulkeats
+    - letsencrypt

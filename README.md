@@ -1,2 +1,4 @@
-# bulkeats-salt
-The bulkeats.com Salt state repo
+bulkeats-salt
+=============
+
+The BulkEats.com Salt state repo.
