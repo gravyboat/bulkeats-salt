@@ -58,13 +58,10 @@ refresh_pelican:
       - git: bulkeats_git
 
 bulkeats_theme:
-  git.detached:
-    - name: https://github.com/getpelican/pelican-themes.git
+  git.latest:
+    - name: git@github.com:gravyboat/pure-single.git
     - target: {{ bulkeats_theme }}
     - user: {{ bulkeats_user }}
-    - ref: be36234f9f7fb4633d7e2eee89833839d7cbf1eb
-    - force_clone: True
-    - force_checkout: True
     - require:
       - virtualenv: bulkeats_venv
       - git: bulkeats_git
