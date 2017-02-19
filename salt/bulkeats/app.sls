@@ -48,26 +48,24 @@ bulkeats_git:
     - watch_in:
       - service: nginx_service
 
-refresh_pelican:
-  cmd.run:
-    - runas: {{ bulkeats_user }}
-    - name: {{ bulkeats_venv }}/bin/pelican -s {{bulkeats_proj}}/pelicanconf.py
-    - require:
-      - virtualenv: bulkeats_venv
-    - watch:
-      - git: bulkeats_git
+bulkeats_themes_dir:
+  file.directory:
+    - name: {{ bulkeats_proj }}/themes
+    - user: {{ bulkeats_user }}
+    - group: {{ bulkeats_user }}
+    - mode: 755
 
 bulkeats_theme:
   git.latest:
-    - name: git@github.com:gravyboat/pure-single.git
+    - name: https://github.com/gravyboat/pure-single.git
     - target: {{ bulkeats_theme }}
     - user: {{ bulkeats_user }}
     - require:
       - virtualenv: bulkeats_venv
       - git: bulkeats_git
+      - file: bulkeats_themes_dir
     - watch_in:
       - service: nginx_service
-
 
 bulkeats_pkgs:
   pip.installed:
@@ -78,6 +76,16 @@ bulkeats_pkgs:
       - git: bulkeats_git
       - pkg: install_python_pip
       - virtualenv: bulkeats_venv
+
+refresh_pelican:
+  cmd.run:
+    - runas: {{ bulkeats_user }}
+    - name: {{ bulkeats_venv }}/bin/pelican -s {{bulkeats_proj}}/pelicanconf.py
+    - require:
+      - virtualenv: bulkeats_venv
+    - watch:
+      - git: bulkeats_git
+
 
 bulkeats_nginx_conf:
   file.managed:
