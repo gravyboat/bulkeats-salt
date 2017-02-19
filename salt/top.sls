@@ -1,5 +1,5 @@
 base:
-  'bulkeatsprod':
+  'bulkeats':
     - nginx
     - fail2ban
     - ssh
