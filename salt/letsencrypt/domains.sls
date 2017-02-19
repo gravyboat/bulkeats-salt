@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
+include:
+  - letsencrypt.config
+
 {% from "letsencrypt/map.jinja" import letsencrypt with context %}
 
 {% for setname, domainlist in salt['pillar.get']('letsencrypt:domainsets').items() %}
