@@ -60,7 +60,7 @@ bulkeats_theme:
     - name: https://github.com/getpelican/pelican-themes.git
     - target: {{ bulkeats_theme }}
     - user: {{ bulkeats_user }}
-    - ref: be36234f9f7fb4633d7e2eee89833839d7cbf1eb
+    - ref: 'be36234f9f7fb4633d7e2eee89833839d7cbf1eb'
     - force_clone: True
     - force_checkout: True
     - require:
