@@ -56,11 +56,11 @@ bulkeats_themes_dir:
     - mode: 755
 
 bulkeats_theme:
-  git.detached:
-    - name: https://github.com/getpelican/pelican-themes.git
+  git.latest:
+    - name: https://github.com/gravyboat/pelican-themes.git
     - target: {{ bulkeats_theme }}
     - user: {{ bulkeats_user }}
-    - ref: be36234f9f7fb4633d7e2eee89833839d7cbf1eb
+    - force_rest: True
     - force_clone: True
     - force_checkout: True
     - require:
