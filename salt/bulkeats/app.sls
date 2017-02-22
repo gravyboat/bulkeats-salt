@@ -60,7 +60,7 @@ bulkeats_theme:
     - name: https://github.com/gravyboat/pelican-themes.git
     - target: {{ bulkeats_theme }}
     - user: {{ bulkeats_user }}
-    - force_rest: True
+    - force_reset: True
     - force_clone: True
     - force_checkout: True
     - require:
