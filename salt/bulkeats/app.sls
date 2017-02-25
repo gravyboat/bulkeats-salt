@@ -88,6 +88,21 @@ refresh_pelican:
     - watch:
       - git: bulkeats_git
 
+bulkeats_images_dir:
+  file.directory:
+    - name: {{ bulkeats_proj }}/output/images
+    - user: {{ bulkeats_user }}
+    - group: {{ bulkeats_user }}
+    - mode: 755
+
+bulkeats_copy_images:
+  file.copy:
+    - name: {{ bulkeats_proj }}/output/images/
+    - source: {{ bulkeats_project}}/content/images/
+    - user: {{ bulkeats_user }}
+    - group: {{ bulkeats_user }}
+    - mode: 755
+
 
 bulkeats_nginx_conf:
   file.managed:
