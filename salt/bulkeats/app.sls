@@ -98,7 +98,7 @@ bulkeats_images_dir:
 bulkeats_copy_images:
   file.copy:
     - name: {{ bulkeats_proj }}/output/images/
-    - source: {{ bulkeats_project}}/content/images/
+    - source: {{ bulkeats_proj }}/content/images/
     - user: {{ bulkeats_user }}
     - group: {{ bulkeats_user }}
     - mode: 755
