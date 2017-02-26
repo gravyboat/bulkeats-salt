@@ -96,13 +96,9 @@ bulkeats_images_dir:
     - mode: 755
 
 bulkeats_copy_images:
-  file.copy:
-    - name: {{ bulkeats_proj }}/output/images/
-    - source: {{ bulkeats_proj }}/content/images/
-    - force: True
-    - user: {{ bulkeats_user }}
-    - group: {{ bulkeats_user }}
-    - mode: 755
+  cmd.run:
+    - name: cp -r {{ bulkeats_proj }}/content/images/ {{ bulkeats_proj }}/output/images/
+    - runas: {{ bulkeats_user }}
 
 
 bulkeats_nginx_conf:
