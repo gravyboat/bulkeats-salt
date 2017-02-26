@@ -99,7 +99,7 @@ bulkeats_images_dir:
 
 bulkeats_copy_images:
   cmd.run:
-    - name: cp -r {{ bulkeats_proj }}/content/images/ {{ bulkeats_proj }}/output/images/
+    - name: cp -r {{ bulkeats_proj }}/content/images/ {{ bulkeats_proj }}/output/
     - runas: {{ bulkeats_user }}
     - require:
       - file: bulkeats_images_dir
