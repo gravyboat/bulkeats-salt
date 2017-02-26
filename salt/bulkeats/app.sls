@@ -88,21 +88,12 @@ refresh_pelican:
     - watch:
       - git: bulkeats_git
 
-bulkeats_images_dir:
-  file.directory:
-    - name: {{ bulkeats_proj }}/output/images
-    - user: {{ bulkeats_user }}
-    - group: {{ bulkeats_user }}
-    - mode: 755
-    - require:
-      - cmd: refresh_pelican
-
 bulkeats_copy_images:
   cmd.run:
     - name: cp -r {{ bulkeats_proj }}/content/images/ {{ bulkeats_proj }}/output/
     - runas: {{ bulkeats_user }}
     - require:
-      - file: bulkeats_images_dir
+      - cmd: refresh_pelican
 
 
 bulkeats_nginx_conf:
