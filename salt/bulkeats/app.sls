@@ -94,11 +94,15 @@ bulkeats_images_dir:
     - user: {{ bulkeats_user }}
     - group: {{ bulkeats_user }}
     - mode: 755
+    - require:
+      - cmd: refresh_pelican
 
 bulkeats_copy_images:
   cmd.run:
     - name: cp -r {{ bulkeats_proj }}/content/images/ {{ bulkeats_proj }}/output/images/
     - runas: {{ bulkeats_user }}
+    - require:
+      - file: bulkeats_images_dir
 
 
 bulkeats_nginx_conf:
